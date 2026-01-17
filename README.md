@@ -8,7 +8,7 @@ The site is designed to be clean, responsive, and easy to navigate, with a focus
 
 ## Live Demo
 
-[https://yourusername.github.io/portfolio](https://Njokey55.github.io/portfolio)
+[https://Njokey55.github.io/portfolio](https://Njokey55.github.io/portfolio)
 
 ---
 
