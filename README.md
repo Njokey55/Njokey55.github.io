@@ -6,13 +6,13 @@ The site is designed to be clean, responsive, and easy to navigate, with a focus
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 
-👉 [https://yourusername.github.io/portfolio](https://Njokey55.github.io/portfolio)
+[https://yourusername.github.io/portfolio](https://Njokey55.github.io/portfolio)
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 * **HTML5** – Structure and content
 * **CSS3** – Styling, layout, and responsiveness
@@ -21,7 +21,7 @@ The site is designed to be clean, responsive, and easy to navigate, with a focus
 
 ---
 
-## ✨ Features
+## Features
 
 * Responsive design for desktop and mobile
 * Projects section with category filtering
@@ -31,7 +31,7 @@ The site is designed to be clean, responsive, and easy to navigate, with a focus
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -41,7 +41,7 @@ portfolio/
 
 ---
 
-## 📬 Contact
+## Contact
 
 * **Email:** [annienesh5555@gmail.com](mailto:annienesh5555@gmail.com)
 * **GitHub:** [https://github.com/Njokey55](https://github.com/Njokey55)
@@ -49,12 +49,12 @@ portfolio/
 
 ---
 
-## 📌 About Me
+## About Me
 
 I am a Computer Science student with a strong interest in frontend development, UI/UX design, and data-driven solutions. I enjoy transforming ideas into intuitive, user-focused digital experiences and continuously growing my technical and creative skills.
 
 ---
 
-## 📄 License
+## License
 
 This project is open for learning and inspiration. Feel free to explore the code.
