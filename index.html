@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Naeku Portfolio</title>
+    <meta name="description" content="Portfolio of Naeku — projects, skills, and contact." />
+    <style>
+        :root{
+            --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#06b6d4; --glass: rgba(255,255,255,0.03);
+            --radius:12px; --maxw:1100px;
+            font-synthesis: none;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+            background:linear-gradient(180deg,var(--bg),#071126 60%); color:#e6eef6;
+            -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+            line-height:1.45;
+            padding:32px;
+            display:flex;justify-content:center;
+        }
+        .wrap{width:100%;max-width:var(--maxw)}
+        header{
+            display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;
+        }
+        .brand{display:flex;gap:12px;align-items:center}
+        .logo{
+            width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#7c3aed);
+            border-radius:10px;display:grid;place-items:center;font-weight:700;color:#04283a;
+            box-shadow:0 6px 18px rgba(0,0,0,0.5);
+        }
+        nav{display:flex;gap:16px;align-items:center}
+        a.btn{
+            color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;
+        }
+        a.btn:hover{color:#779dcb;background:var(--glass)}
+        .hero{
+            display:grid;grid-template-columns:1fr 360px;gap:28px;margin-bottom:28px;
+            align-items:center;
+        }
+        .panel{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.04); padding:20px;border-radius:var(--radius);
+            box-shadow:0 8px 30px rgba(2,6,23,0.7);
+        }
+        .intro h1{margin:0 0 8px 0;font-size:28px}
+        .intro p{margin:0;color:var(--muted)}
+        .avatar{
+            height:360px;border-radius:12px;display:flex; align-items:center;background:linear-gradient(135deg,#04283a22,#07203a44);justify-content: center;
+            border:1px solid rgba(255,255,255,0.03); overflow: hidden;
+        }
+        .avatar-image{
+            width:100%;height:auto;max-height:100%;object-fit:contain;border-radius:12px;display: block; 
+        }
+        .section{margin-bottom:20px}
+        .skills{display:flex;gap:8px;flex-wrap:wrap}
+        .skill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+        .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+        .card h3{margin:0 0 8px 0;font-size:16px}
+        .card p{margin:0 0 10px;color:var(--muted);font-size:14px}
+        .card .meta{display:flex;justify-content:space-between;align-items:center}
+        .link{color:var(--accent);text-decoration:none;font-weight:600}
+        footer{opacity:0.8;color:var(--muted);font-size:13px;margin-top:12px;text-align:center}
+        .socials{
+        display:flex;
+        gap:14px;
+        justify-content:center;
+        margin-top:12px;
+       }
+
+        .socials a{
+        width:36px;
+        height:36px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:var(--muted);
+        border-radius:50%;
+        background:rgba(255,255,255,0.03);
+        transition:0.3s ease;
+       }
+
+      .socials a:hover{
+      color:var(--accent);
+      background:rgba(6,182,212,0.15);
+      }
+
+      .socials svg{
+       width:20px;
+       height:20px;
+       }
+
+        .contact-form{display:grid;gap:8px}
+        input,textarea{
+            background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:inherit;
+            outline:none;
+        }
+        button{background:linear-gradient(90deg,var(--accent),#8b5cf6);border:none;padding:10px 14px;color:#04283a;border-radius:10px;font-weight:700;cursor:pointer}
+        .filters{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+        .chip{padding:6px 10px;background:rgba(255,255,255,0.02);border-radius:999px;color:var(--muted);cursor:pointer;border:1px solid transparent}
+        .chip.active{background:rgba(6,182,212,0.12);color:#06b6d4;border-color:rgba(6,182,212,0.18)}
+        /* Responsive */
+        @media (max-width:880px){
+            .hero{grid-template-columns:1fr;gap:16px}
+            body{padding:18px}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" id="app">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true">Icon</div>
+                <div>
+                    <div style="font-weight:700">Naeku Anne</div>
+                    <div style="font-size:13px;color:var(--muted)">UI Designer . Frontend Developer . Artist</div>
+                </div>
+            </div>
+            <nav>
+                <a class="btn" href="#projects">Projects</a>
+                <a class="btn" href="#certificates">Certificates</a>
+                <a class="btn" href="#about">About</a>
+                <a class="btn" href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="panel intro">
+                    <h1>Hi, I'm Naeku</h1>
+                    <p>Frontend-focused developer building accessible web experiences and polished UI. I transform ideas into fast, maintainable interfaces.</p>
+
+                    <div class="section">
+                        <h4 style="margin:10px 0 6px 0">Skills</h4>
+                        <div class="skills" aria-hidden="false">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">React</span>
+                            <span class="skill">Python</span>
+                            <span class="skill">Github</span>
+                            <span class="skill">Canva</span>
+                            <span class="skill">Figma</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h4 style="margin:10px 0 6px 0">Quick Links</h4>
+                        <div style="display:flex;gap:8px">
+                            <a class="btn" href="#projects">View Projects</a>
+                            <a class="btn" href="#contact">Hire Me</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="avatar panel" >
+                   <img src ="Naeku.jpg.jpeg" alt="Naeku Anne" class ="avatar-image" />
+                </div>
+            </section>
+
+            <section id="projects" class="section panel">
+                <h2 style="margin-top:0">Selected Projects</h2>
+
+                <div class="filters" role="tablist" aria-label="Filter projects">
+                    <button class="chip active" data-filter="all">All</button>
+                    <button class="chip" data-filter="web">Web</button>
+                    <button class="chip" data-filter="ui">UI</button>
+                    <button class="chip" data-filter="open">Open Source</button>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid" aria-live="polite">
+                    <article class="card" data-type="web">
+                        <h3>Portfolio Site</h3>
+                        <p>A performance-focused personal site with responsive design and dark theme support.</p>
+                        <div class="meta">
+                            <a class="link" href="#" onclick="openDemo(event,'Portfolio Site')">Demo</a>
+                            <small style="color:var(--muted)">HTML · CSS · JS</small>
+                        </div>
+                    </article>
+
+                    <article class="card" data-type="ui">
+                        <h3>TalantaHub</h3>
+                        <p>UI/UX design and frontend structure for a youth talent discovery platform.</p>
+                        <div class="meta">
+                            <a class="link" href="#" onclick="openDemo(event,'TalantaHub')">View</a>
+                            <small style="color:var(--muted)">UI/UX · Figma · Web</small>
+                        </div>
+                    </article>
+
+                    <article class="card" data-type="open">
+                        <h3>Data Analysis Project</h3>
+                        <p>Interactive data visualizations and responsive layout for admin tools.</p>
+                        <div class="meta">
+                            <a class="link" href="#" onclick="openDemo(event,'Data Analysis Project')">Repo</a>
+                            <small style="color:var(--muted)">python · Pandas · matplotlib</small>
+                        </div>
+                    </article>
+
+                    <article class="card" data-type="open">
+                        <h3>GUI Projects</h3>
+                        <p>GUI applications built with Python Tkinter and data structures.</p>
+                        <div class="meta">
+                            <a class="link" href="#" onclick="openDemo(event,'Dashboard UI')">Open</a>
+                            <small style="color:var(--muted)">PythonTkinterData structures</small>
+                        </div>
+                    </article>
+
+                    <article class="card" data-type="web">
+                        <h3>Barter Trade Platform Project</h3>
+                        <p>A platform for users to exchange goods and services with/without using money.</p>
+                        <div class="meta">
+                            <a class="link" href="#" onclick="openDemo(event,'Barter Trade Platform Project')">Demo</a>
+                            <small style="color:var(--muted)">HTML · CSS · JS</small>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="certificates" class="section panel">
+                <h2 style="margin-top:0">Certificates</h2>
+                <ul style="padding-left:20px;margin:0;color:var(--muted);">
+                    <li><a class="link" href="https://www.udemy.com/certificate/UC-4f1ef494-f1c7-421c-bf2a-7d575a23d184/">Full Stack Crash Course</a></li>
+                    <li><a class="link" href="https://www.udemy.com/certificate/UC-066579fa-c8f8-4690-9c79-44d3a2b5fd83/">Python Libraries</a></li>
+                    <li><a class="link" href="#">freeCodeCamp Frontend Development Libraries Certification</a></li>
+                    <li><a class="link" href="#">edX Introduction to Computer Science using Python</a></li>
+                </ul>
+            </section>
+
+            <section id="about" class="section panel">
+                <h2 style="margin-top:0">About</h2>
+                <p style="color:var(--muted)">I am a Computer Science student with a strong interest in data analysis, UI/UX design, and digital strategy.
+                     I enjoy transforming complex problems into clear, user-focused solutions by combining technical skills with creativity.
+                     Through my academic and practical experiences, I have developed a solid foundation in software development, data-driven decision-making, and thoughtful design. 
+                    I am passionate about leveraging technology to create meaningful user experiences and am always eager to learn and grow in the ever-evolving tech landscape.</p>
+            </section>  
+            <section id="contact" class="section panel">
+                <h2 style="margin-top:0">Contact</h2>
+                <div class="socials">
+                   <a href="https://github.com/Naeku" target="_blank" aria-label="GitHub">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 2.1 3.2 1.5.1-.8.4-1.4.7-1.7-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 3 .1 3.3.8.8 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/>
+                      </svg>
+                   </a>
+                   <a href="https://linkedin.com/in/yourname" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                           <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.1 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.5h-4v16zM8.5 7.5h3.8v2.2h.1c.5-.9 1.8-2.3 3.8-2.3 4 0 4.8 2.6 4.8 6v6.4h-4v-5.7c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v5.8h-4V7.5z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p style="margin-top:8px"><b>Message me on WhatsApp:</b></p>
+                <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" aria-label="Contact form">
+                    <input type="text" id="name" placeholder="Your name" required />
+                    <input type="email" id="email" placeholder="Email address" required />
+                    <textarea id="message" rows="4" placeholder="Message" required></textarea>
+                    <div style="display:flex;gap:8px;justify-content:flex-end">
+                        <button type="button" onclick="sendWhatsApp()">Send</button>
+                    </div>
+                </form>
+                <footer>
+                    <p>Prefer email? <a class="link" href="mailto:annienesh5555@gmail.com">annienesh5555@gmail.com</a></p>
+                    
+                    <p style="margin-top:8px">© <span id="year"></span> Naeku</p>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // small UI behaviors: filter chips and demo modal stub
+        const chips = document.querySelectorAll('.chip');
+        const grid = document.getElementById('projectsGrid');
+        chips.forEach(c=>{
+            c.addEventListener('click', ()=> {
+                chips.forEach(x=>x.classList.remove('active'));
+                c.classList.add('active');
+                const f = c.dataset.filter;
+                filterProjects(f);
+            });
+        });
+
+        function filterProjects(filter){
+            const items = grid.querySelectorAll('.card');
+            items.forEach(it=>{
+                const t = it.dataset.type;
+                if(filter === 'all' || t === filter){ it.style.display = ''; }
+                else { it.style.display = 'none'; }
+            });
+        }
+
+        function openDemo(e, title){
+            e.preventDefault();
+            alert(title + " — demo placeholder");
+        }
+
+        // basic form handler (placeholder)
+        function handleSubmit(e){
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if(!name || !email || !message){ alert('Please complete the form.'); return; }
+            // replace with real submission logic
+            alert('Thanks, ' + name + '. Message received.');
+            e.target.reset();
+        }
+         function sendWhatsApp(){
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if(!name || !email || !message){
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const phoneNumber = "254790861906"; // 👈 your WhatsApp number (no +)
+    const text = `Hello, my name is ${name}%0AEmail: ${email}%0A%0A${message}`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
+}
+
+        // fill year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
