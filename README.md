@@ -30,17 +30,13 @@ The site is designed to be clean, responsive, and easy to navigate, with a focus
 * Clean UI with modern dark theme styling
 
 ---
-
 ## Project Structure
-
-```
 portfolio/
  ├── index.html
- │── Naeku.jpg.jpeg
+ ├── Naeku.jpg.jpeg
  └── README.md
-
+ 
 ---
-
 ## Contact
 
 * **Email:** [annienesh5555@gmail.com](mailto:annienesh5555@gmail.com)
