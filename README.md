@@ -41,7 +41,7 @@ portfolio/
 
 * **Email:** [annienesh5555@gmail.com](mailto:annienesh5555@gmail.com)
 * **GitHub:** [https://github.com/Njokey55](https://github.com/Njokey55)
-* **LinkedIn:** [https://linkedin.com/in/naeku-anne](https://linkedin.com/in/Naeku Anne)
+* **LinkedIn:** [https://linkedin.com/in/naeku-anne](https://linkedin.com/in/NaekuAnne)
 
 ---
 
